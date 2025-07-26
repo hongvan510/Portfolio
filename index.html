@@ -43,7 +43,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
-            position: relative;
         }
 
         .logo {
@@ -55,14 +54,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            z-index: 1001;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
-            transition: all 0.3s ease;
         }
 
         .nav-links a {
@@ -91,59 +88,6 @@
 
         .nav-links a:hover::after {
             width: 100%;
-        }
-
-        /* Hamburger Menu Styles */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 1001;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: white;
-            margin: 3px 0;
-            transition: all 0.3s ease;
-            border-radius: 3px;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-            background: #4ecdc4;
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-            background: #4ecdc4;
-        }
-
-        /* Mobile Menu Overlay */
-        .mobile-menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
         }
 
         main {
@@ -758,71 +702,9 @@
             transform: scale(1.2) translateY(-3px);
         }
 
-        /* Mobile Responsive Styles */
         @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-            
             .nav-links {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(30, 60, 114, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 3rem;
-                gap: 3rem;
-                transform: translateX(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-            }
-
-            .nav-links.active {
-                transform: translateX(0);
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .nav-links li {
-                opacity: 0;
-                transform: translateY(30px);
-                transition: all 0.3s ease;
-            }
-
-            .nav-links.active li {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .nav-links.active li:nth-child(1) { transition-delay: 0.1s; }
-            .nav-links.active li:nth-child(2) { transition-delay: 0.2s; }
-            .nav-links.active li:nth-child(3) { transition-delay: 0.3s; }
-            .nav-links.active li:nth-child(4) { transition-delay: 0.4s; }
-            .nav-links.active li:nth-child(5) { transition-delay: 0.5s; }
-            .nav-links.active li:nth-child(6) { transition-delay: 0.6s; }
-
-            .nav-links a {
-                font-size: 1.2rem;
-                padding: 1rem 2rem;
-                border-radius: 10px;
-                background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                width: 80%;
-                text-align: center;
-                transition: all 0.3s ease;
-            }
-
-            .nav-links a:hover {
-                background: rgba(78, 205, 196, 0.2);
-                transform: scale(1.05);
-                border-color: #4ecdc4;
+                display: none;
             }
             
             .hero h1 {
@@ -866,22 +748,6 @@
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
-            }
-
-            .about-content {
-                padding: 2rem;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
             }
         }
 
@@ -952,69 +818,106 @@
             }
         }
 
-        /* Enhanced Mobile Menu Animation */
-        .nav-links a::after {
-            display: none;
+                /* Thanh menu chung */
+        .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background-color: #294a8d; /* hoặc màu bạn đang dùng */
+        color: white;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 999;
         }
 
+        /* Logo */
+        .logo {
+        font-size: 24px;
+        font-weight: bold;
+        }
+
+        /* Links ngang */
+        .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+        }
+
+        .nav-links li a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        transition: 0.3s;
+        }
+
+        .nav-links li a:hover {
+        color: #00ffff;
+        }
+
+        /* Nút menu hamburger (ẩn trên desktop) */
+        .menu-toggle {
+        display: none;
+        font-size: 30px;
+        cursor: pointer;
+        }
+
+        /* Responsive cho điện thoại */
         @media (max-width: 768px) {
-            .nav-links a::after {
-                display: block;
-                bottom: -10px;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .nav-links a:hover::after {
-                width: 80%;
-            }
+        .menu-toggle {
+            display: block;
         }
 
-        /* Mobile Menu Close Button */
-        .menu-close {
+        .nav-links {
             position: absolute;
-            top: 2rem;
-            right: 2rem;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            z-index: 1002;
-            opacity: 0;
-            transition: all 0.3s ease;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: #294a8d;
+            flex-direction: column;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease;
         }
 
-        .nav-links.active .menu-close {
-            opacity: 1;
+        .nav-links.show {
+            max-height: 300px;
         }
+
+        .nav-links li {
+            text-align: center;
+            padding: 15px 0;
+        }
+        }
+
     </style>
 </head>
 <body>
     <header>
-        <nav class="container">
-            <a href="#home" class="logo">THV</a>
-            
-            <!-- Hamburger Menu -->
-            <div class="hamburger" id="hamburgerMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            
-            <!-- Navigation Links -->
-            <ul class="nav-links" id="navLinks">
-                <div class="menu-close" id="menuClose">✕</div>
-                <li><a href="#home">Trang chủ</a></li>
-                <li><a href="#about">Giới thiệu</a></li>
-                <li><a href="#skills">Kỹ năng</a></li>
-                <li><a href="#projects">Dự án</a></li>
-                <li><a href="#education">Học vấn</a></li>
-                <li><a href="#contact">Liên hệ</a></li>
-            </ul>
-            
-            <!-- Mobile Menu Overlay -->
-            <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-        </nav>
+    <nav class="navbar">
+        <div class="logo">THV</div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Trang chủ</a></li>
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#skills">Kỹ năng</a></li>
+        <li><a href="#projects">Dự án</a></li>
+        <li><a href="#education">Học vấn</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+    </nav>
     </header>
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    toggle.innerHTML = navLinks.classList.contains('show') ? '&times;' : '&#9776;';
+  });
+</script>
+
 
     <main>
         <section id="home" class="section hero">
